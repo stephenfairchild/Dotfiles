@@ -25,7 +25,7 @@ font pango:System San Francisco Display 13
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec /usr/bin/terminator
 
 # kill focused window
 bindsym $mod+q kill
@@ -122,9 +122,21 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bar {
-    status_command i3status
-}
+set $bg-color            #2F343F
+set $inactive-bg-color   #2F343F
+set $text-color          #F3F4F5
+set $inactive-text-color #676E7d
+set $urgent-bg-color     #E53935
+
+
+# Window Colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00FF00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00FF00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00FF00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00FF00
+
+exec --no-startup-id sh $HOME/polybar/run_polybar.sh
 
 
 # resize window (you can also use the mouse for that)
@@ -176,7 +188,4 @@ exec feh --bg-scale $HOME/Wallpaper/kyoto.jpg
 exec --no-startup-id ~/.scripts/blurme &
 
 bindsym $mod+shift+x exec i3lock
-
-workspace $ws1 gaps outer 50
-
 for_window [class="Chromium"] move to workspace $ws3

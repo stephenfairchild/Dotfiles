@@ -1,7 +1,5 @@
 so ~/.vim/plugins.vim
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
 set t_Co=256
 set term=screen-256color
 "Theme / Styles

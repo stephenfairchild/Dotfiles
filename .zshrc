@@ -1,4 +1,5 @@
 . ~/.zsh/functions.zsh
+export PATH=$PATH:/usr/local/bin
 
 . ~/.zsh/git.zsh
 . ~/.zsh/themes/spaceship.zsh
