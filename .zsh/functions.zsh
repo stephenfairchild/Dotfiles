@@ -17,3 +17,34 @@ function man {
 }
 
 . ~/.zsh/functions/docker.zsh
+
+function start-ops {
+    cd $HOME/Apps && \
+    ./docker-rs/docker.sh start && \
+    ./operations-sqr-io/bin/docker.sh start
+}
+
+function clean-swp {
+    rm -rvf $HOME/.cache/vim/swap/*
+}
+
+# Gracefully stop all docker containers
+function stop-all {
+    docker stop $(docker ps -a -q)
+}
+
+function phptags {
+    ctags -R --PHP-kinds=cfi . && \
+    ctags -R --PHP-kinds=cfi -f tags.vendors vendor
+}
+
+yanktoclipboard(){
+    echo $BUFFER | xsel -i -b
+}
+pastefromclipboard(){
+    RBUFFER=$(xsel -o -b </dev/null)$RBUFFER
+}
+zle -N yanktoclipboard
+zle -N pastefromclipboard
+bindkey -a 'yy' yanktoclipboard
+bindkey -a 'p' pastefromclipboard

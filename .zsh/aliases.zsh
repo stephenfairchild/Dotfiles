@@ -49,7 +49,5 @@ alias gsts='gst save'
 alias gstsu='gsts -u'
 
 alias tm='tmux new'
-alias po='push-ops.sh'
-alias so='pull-ops.sh'
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true

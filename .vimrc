@@ -1,34 +1,67 @@
+"Plugins
 so ~/.vim/plugins.vim
 
-set t_Co=256
-set term=screen-256color
-"Theme / Styles
-colorscheme gruvbox
-set background=dark
+" Utility function for bootstrapping {{{
+fun! LoadFiles(files)
+    for file in a:files
+        if filereadable(expand(file))
+            execute "source " . file
+        endif
+    endfor
+endfun
+" }}}
+
+
+"Theming
+"colorscheme gruvbox
+colorscheme onehalfdark
+scriptencoding utf-8
+filetype on
+filetype plugin on
 syntax on
+
+"Settings
 set laststatus=2
 set noshowmode
-set number
+set showcmd                 "Shows what you are typing as a command
+set number                  "Enables hybrid when set with relative
+set relativenumber          "Relative line numbers
+set nocompatible            "Noop
+set mousehide
+set termguicolors
+set ignorecase              "Case insensitive search
+set autoread                "Watch for file changse
+set pastetoggle=<F2>
+set hlsearch
+set grepprg=grep\ -nH\ $*
+set virtualedit=onemore     "Jump to the very end of a word and then go one more space over
+set nomodeline              "Modeline opens up security vulnerabilities
 
-autocmd BufEnter * :syntax sync fromstart
-
-
-let g:NERDTreeDirArrows=0
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
 autocmd BufWritePre * %s/\s\+$//e
 
-" FZF
+if has ('x') && has ('gui') " On Linux use + register for copy-paste
+    set clipboard=unnamedplus
+elseif has ('gui')          " On mac and Windows, use * register for copy-paste
+    set clipboard=unnamed
+endif
+
+"FZF
 set rtp+=~/.fzf
 
-" Map leader to space
-let mapleader=" "
+let mapleader=" " "Map leader to space
 
-" Go to last buffer
+"use system clipboard
+set clipboard=unnamedplus
+
+"Buffers
+autocmd BufEnter * :syntax sync fromstart
+
+"Go to last buffer
 nnoremap <BS> <C-^>
 
 map <C-o> :NERDTreeToggle<CR>
 nnoremap <Leader>nn :NERDTreeWinSize=60<cr>
-
 
 "Open split
 nnoremap <Leader>h :split<CR>
@@ -66,17 +99,90 @@ nnoremap <leader><tab> :b#<CR>
 nnoremap <Leader>cc  :bufdo bd<cr>
 
 "FZF open
-nnoremap <Leader>p :Files<CR>
+function! s:get_git_root()
+    if exists('*fugitive#repo')
+        try
+            return fugitive#repo().tree()
+        catch
+        endtry
+    endif
+    let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+    return v:shell_error ? '' : root
+endfunction
+
+" Autoreload vim after a vimrc change
+augroup myvimrchooks
+    au!
+        autocmd bufwritepost .vimrc source ~/.vimrc
+    augroup END
+
+"If in a git repository then only search the files
+"checked into git.
+function! SmartFzfSearching()
+    let root = s:get_git_root()
+    if empty(root)
+        Files
+    else
+        GFiles
+    endif
+endfunction
+
+nnoremap <Leader>p :call SmartFzfSearching()<CR>
+
+nmap g<C-p> :Files<CR>
+nmap gs<C-p> :GFiles?<CR>
+
+nmap <leader>T :BTags<CR>
+nmap g<leader>T :Tags<CR>
+
+nmap <leader>l :BLines<CR>
+nmap g<leader>l :Lines<CR>
+
+nmap <leader>b :Buffers<CR>
+
+nmap <leader>c :BCommits<CR>
+nmap g<leader>c :Commits<CR>
+
+nmap <leader>M :Marks<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-h': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'GruvboxAqua'],
+  \ 'fg+':     ['fg', 'String'],
+  \ 'bg+':     ['bg', 'Normal'],
+  \ 'hl+':     ['fg', 'GruvboxBlue'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'GruvboxPurple'],
+  \ 'pointer': ['fg', 'GruvboxPurple'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-"Reload .vimrc
-nnoremap <leader><F5> :source $HOME/.vimrc<cr>
 
 "Go To Definition with ctags
 nnoremap <leader>] <C-]><cr>
 
 nnoremap gp :Ggrep<Space>
 nnoremap gb :Gblame<cr>
+
+" Folding and unfolding
+map ,f :set foldmethod=indent<cr>zM<cr>
+map ,F :set foldmethod=manual<cr>zR<cr>
+
+"Generate tags file
+set tags+=tags,tags.vendors
+let g:autotagTagsFile="tags"
+
+"Delete the current file and it's buffers
+nnoremap <leader>rm :call delete(expand('%')) \| bdelete!<CR>
+
+call LoadFiles(["~/.vim/config/functions", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.local"])
 

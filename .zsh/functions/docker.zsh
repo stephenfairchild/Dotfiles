@@ -152,7 +152,7 @@ function dkr-proxy {
     docker stop proxy && \
         docker rm proxy
 
-    docker pull jwilder/nginx-proxy && \
+    docker pull jwilder/nginx-proxy; \
         dkr-run --name proxy -d \
             -p 80:80 \
             -p 443:443 \
@@ -170,7 +170,7 @@ function dkr-proxy {
     docker stop ssl && \
         docker rm ssl
 
-    docker pull jrcs/letsencrypt-nginx-proxy-companion && \
+    docker pull jrcs/letsencrypt-nginx-proxy-companion; \
         dkr-run --name ssl -d \
             -e "ACME_CA_URI=https://acme-v01.api.letsencrypt.org/directory" \
             -v /var/run/docker.sock:/var/run/docker.sock:ro \

@@ -1,3 +1,9 @@
+dev-tmux()
+    tmux new -s vim -d
+    tmux send-keys -t vim 'vim' C-m
+    tmux attach -t vim
+}
+
 dkr-container-name() {
     __params=(${@[@]})
 
@@ -177,5 +183,10 @@ dkr-proxy() {
             -v ~/.config/nginx-proxy/certs:/etc/nginx/certs:rw \
             --volumes-from proxy \
             jrcs/letsencrypt-nginx-proxy-companion
+}
+
+start-ops() {
+    ./$HOME/Apps/docker-rs/docker.sh start && \
+    ./$HOME/Apps/operations-sqr-io/bin/docker.sh start
 }
 
