@@ -1,6 +1,3 @@
-"Plugins
-so ~/.vim/plugins.vim
-
 " Utility function for bootstrapping {{{
 fun! LoadFiles(files)
     for file in a:files
@@ -32,7 +29,7 @@ endfun
         call LoadFiles([plugin_root_dir . '/vim-plug/plug.vim'])
 
         call plug#begin(plugin_root_dir)
-        call LoadFiles(["~/.vim/plugins.vim"])
+        call LoadFiles(["~/.vim/bundles"])
         call plug#end()
     endfun
 
