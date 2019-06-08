@@ -129,7 +129,10 @@ client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00FF00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00FF00
 
-# resize window (you can also use the mouse for that)
+# Hide title bar
+new_window 1pixel
+
+# Resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -182,6 +185,6 @@ exec --no-startup-id ~/.scripts/blurme &
 bindsym $mod+shift+x exec i3lock
 for_window [class="Chromium"] move to workspace $ws3
 
-exec_always --no-startup-id $HOME//polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --primary
 exec compton -b
