@@ -129,6 +129,10 @@ nnoremap <leader><tab> :b#<CR>
 "Close all buffers
 nnoremap <Leader>cc  :bufdo bd<cr>
 
+"Toggle tagbar to show function/property definitions
+nmap <Leader>t :TagbarToggle<CR>
+let g:tagbar_left = 1
+
 "FZF open
 function! s:get_git_root()
     if exists('*fugitive#repo')
