@@ -7,6 +7,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
+
 font pango:System San Francisco Display 13
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -71,9 +72,9 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "1:tmux"
+set $ws2 "2:opera"
+set $ws3 "3:chromium"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -81,6 +82,11 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+exec --no-startup-id i3-msg 'workspace 1:tmux; exec /usr/bin/terminator'
+exec --no-startup-id i3-msg 'workspace 2:opera; exec /usr/bin/opera'
+exec --no-startup-id i3-msg 'workspace 3:chromium; exec /usr/bin/chromium'
+
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
