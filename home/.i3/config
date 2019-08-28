@@ -189,8 +189,8 @@ exec feh --bg-scale $HOME/Wallpaper/kyoto.jpg
 exec --no-startup-id ~/.scripts/blurme &
 
 bindsym $mod+shift+x exec i3lock
-for_window [class="Chromium"] move to workspace $ws3
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --primary
 exec compton -b
+exec dunst
