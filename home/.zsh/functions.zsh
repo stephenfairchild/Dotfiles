@@ -25,7 +25,7 @@ function start-ops {
 }
 
 function clean-swp {
-    rm -rvf $HOME/.cache/vim/swap/*
+    rm -rvf $HOME/.local/share/nvim/swap/*
 }
 
 # Gracefully stop all docker containers

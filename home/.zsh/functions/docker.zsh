@@ -179,3 +179,24 @@ function dkr-proxy {
             jrcs/letsencrypt-nginx-proxy-companion
 }
 
+function dkr-proxy-no-ssl {
+    mkdir -p ~/.config/nginx-proxy/{html,vhost.d,htpasswd,certs}
+    touch ~/.config/nginx-proxy/proxy.conf
+
+    docker stop proxy && \
+        docker rm proxy
+
+    docker pull jwilder/nginx-proxy; \
+        dkr-run --name proxy -d \
+            -p 80:80 \
+            -v /var/run/docker.sock:/tmp/docker.sock:ro \
+            -v ~/.config/nginx-proxy/html:/usr/share/nginx/html:rw \
+            -v ~/.config/nginx-proxy/proxy.conf:/etc/nginx/conf.d/custom-proxy.conf:ro \
+            -v ~/.config/nginx-proxy/vhost.d/:/etc/nginx/vhost.d:rw \
+            -v ~/.config/nginx-proxy/htpasswd/:/etc/nginx/htpasswd:ro \
+            --log-opt max-size=5M \
+            --net bridge \
+            --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true \
+            jwilder/nginx-proxy
+}
+

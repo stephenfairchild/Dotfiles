@@ -91,7 +91,7 @@ autocmd BufEnter * :syntax sync fromstart
 "Go to last buffer
 nnoremap <BS> <C-^>
 
-map <C-o> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>nn :NERDTreeWinSize=60<cr>
 
 "Open split
@@ -178,7 +178,7 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>c :BCommits<CR>
 nmap g<leader>c :Commits<CR>
 
-nmap <leader>M :Marks<CR>
+nmap <leader>m :Marks<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -198,9 +198,6 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
-"Remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 "Go To Definition with ctags
 nnoremap <leader>] <C-]><cr>
