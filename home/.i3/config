@@ -36,10 +36,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -84,9 +84,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 exec --no-startup-id i3-msg 'workspace 1:tmux; exec /usr/bin/terminator'
-exec --no-startup-id i3-msg 'workspace 2:opera; exec /usr/bin/opera'
-exec --no-startup-id i3-msg 'workspace 3:chromium; exec /usr/bin/chromium'
-
+#exec --no-startup-id i3-msg 'workspace 2:opera; exec /usr/bin/opera'
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -193,4 +191,6 @@ bindsym $mod+shift+x exec i3lock
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --primary
 exec compton -b
+
+# This allows the system to use notify-send to send notifications to DBUS.
 exec dunst

@@ -38,7 +38,6 @@ endfun
 
     " Install plugins on first run {{{
     if exists('g:keelerm84_first_run')
-        " If this is the first run we need to install all of the plugins
         PlugInstall
     endif
     " }}}
@@ -67,36 +66,26 @@ set hlsearch
 set grepprg=grep\ -nH\ $*
 set virtualedit=onemore     "Jump to the very end of a word and then go one more space over
 set nomodeline              "Modeline opens up security vulnerabilities
+set clipboard=unnamedplus
+set tabstop=4
+set softtabstop=4
+set expandtab
+set shiftwidth=4
+set smarttab
+set rtp+=~/.fzf "FZF
 
-set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
 autocmd BufWritePre * %s/\s\+$//e
 
-if has ('x') && has ('gui') " On Linux use + register for copy-paste
-    set clipboard=unnamedplus
-elseif has ('gui')          " On mac and Windows, use * register for copy-paste
-    set clipboard=unnamed
-endif
-
-"FZF
-set rtp+=~/.fzf
 
 let mapleader=" " "Map leader to space
 
 "use system clipboard
-set clipboard=unnamedplus
 
 "Buffers
 autocmd BufEnter * :syntax sync fromstart
 
-"Go to last buffer
-nnoremap <BS> <C-^>
-
 map <C-n> :NERDTreeToggle<CR>
-nnoremap <Leader>nn :NERDTreeWinSize=60<cr>
 
-"Open split
-nnoremap <Leader>h :split<CR>
-nnoremap <Leader>v :vsplit<CR>
 
 "Split screen navigation remap hotkeys
 map <C-j> <C-W>j
@@ -107,14 +96,22 @@ map <C-l> <C-W>l
 "List buffers and prepare to move into one
 nnoremap <Leader>b :ls<CR>:b<Space>
 
+"Open split
+nnoremap <Leader>h :split<CR>
+nnoremap <Leader>v :vsplit<CR>
+"Go to last buffer
+nnoremap <BS> <C-^>
+
+
 "Save file with leader + s
 nnoremap <leader>s :w<cr>
-nnoremap <leader>ss :wq!<cr>
 nnoremap <leader>q :q<cr>
 
 "Navigate quickfix with arrows
 nnoremap <Right> :cnext<CR>
 nnoremap <Left> :cprev<CR>
+nnoremap gp :Ggrep<Space>
+nnoremap gb :Gblame<cr>
 
 "Move to beginning/end of line without taking fingers off of home row
 nnoremap H ^
@@ -123,11 +120,8 @@ nnoremap L $
 "Escape out of insert mode
 imap jj <ESC>
 
-"Toggle between buffers
-nnoremap <leader><tab> :b#<CR>
-
-"Close all buffers
-nnoremap <Leader>cc  :bufdo bd<cr>
+"Quickly paste default register while in insert mode
+inoremap <C-F> <C-R>"
 
 "Toggle tagbar to show function/property definitions
 nmap <Leader>t :TagbarToggle<CR>
@@ -166,18 +160,13 @@ nnoremap <Leader>p :call SmartFzfSearching()<CR>
 
 nmap g<C-p> :Files<CR>
 nmap gs<C-p> :GFiles?<CR>
-
 nmap <leader>T :BTags<CR>
 nmap g<leader>T :Tags<CR>
-
 nmap <leader>l :BLines<CR>
 nmap g<leader>l :Lines<CR>
-
 nmap <leader>b :Buffers<CR>
-
 nmap <leader>c :BCommits<CR>
 nmap g<leader>c :Commits<CR>
-
 nmap <leader>m :Marks<CR>
 
 let g:fzf_action = {
@@ -199,22 +188,10 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-"Go To Definition with ctags
-nnoremap <leader>] <C-]><cr>
-
-nnoremap gp :Ggrep<Space>
-nnoremap gb :Gblame<cr>
 
 " Folding and unfolding
 map ,f :set foldmethod=indent<cr>zM<cr>
 map ,F :set foldmethod=manual<cr>zR<cr>
 
-"Generate tags file
-set tags+=tags,tags.vendors
-let g:autotagTagsFile="tags"
-
-"Delete the current file and it's buffers
-nnoremap <leader>rm :call delete(expand('%')) \| bdelete!<CR>
-
-call LoadFiles(["~/.vim/config/functions", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.local"])
+-call LoadFiles(["~/.vim/config/functions", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.local"])
 

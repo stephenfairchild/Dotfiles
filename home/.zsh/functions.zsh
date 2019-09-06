@@ -18,12 +18,6 @@ function man {
 
 . ~/.zsh/functions/docker.zsh
 
-function start-ops {
-    cd $HOME/Apps && \
-    ./docker-rs/docker.sh start && \
-    ./operations-sqr-io/bin/docker.sh start
-}
-
 function clean-swp {
     rm -rvf $HOME/.local/share/nvim/swap/*
 }
@@ -33,17 +27,22 @@ function stop-all {
     docker stop $(docker ps -a -q)
 }
 
-function phptags {
+phptags() {
     ctags -R --PHP-kinds=cfi . && \
     ctags -R --PHP-kinds=cfi -f tags.vendors vendor
 }
 
-yanktoclipboard(){
+yanktoclipboard() {
     echo $BUFFER | xsel -i -b
 }
-pastefromclipboard(){
+pastefromclipboard() {
     RBUFFER=$(xsel -o -b </dev/null)$RBUFFER
 }
+
+setKeyboardLight() {
+    dbus-send --system --type=method_call  --dest="org.freedesktop.UPower" "/org/freedesktop/UPower/KbdBacklight" "org.freedesktop.UPower.KbdBacklight.SetBrightness" int32:$1
+}
+
 zle -N yanktoclipboard
 zle -N pastefromclipboard
 bindkey -a 'yy' yanktoclipboard
