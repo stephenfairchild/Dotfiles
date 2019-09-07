@@ -86,7 +86,6 @@ autocmd BufEnter * :syntax sync fromstart
 
 map <C-n> :NERDTreeToggle<CR>
 
-
 "Split screen navigation remap hotkeys
 map <C-j> <C-W>j
 map <C-k> <C-W>k

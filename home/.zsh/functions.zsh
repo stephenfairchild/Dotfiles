@@ -18,27 +18,42 @@ function man {
 
 . ~/.zsh/functions/docker.zsh
 
-function clean-swp {
+# Kill all swap files left over from nvim.
+clean-swp() {
     rm -rvf $HOME/.local/share/nvim/swap/*
 }
 
-# Gracefully stop all docker containers
-function stop-all {
+# Gracefully stop all docker containers.
+stop-all() {
     docker stop $(docker ps -a -q)
 }
 
+# Kill all shell jobs running in the background.
+killalljobs() {
+    for pid in $( jobs -p ); do kill -9 $pid ; done ;
+}
+
+# Generate a tags file in the current directory. This is used
+# for searching and navigating directories quickly.
 phptags() {
     ctags -R --PHP-kinds=cfi . && \
     ctags -R --PHP-kinds=cfi -f tags.vendors vendor
 }
 
+# Vim hack to paste to and from clipboard to take contents
+# in and out of vim.
 yanktoclipboard() {
     echo $BUFFER | xsel -i -b
 }
+
+# Vim hack to paste to and from clipboard to take contents
+# in and out of vim.
 pastefromclipboard() {
     RBUFFER=$(xsel -o -b </dev/null)$RBUFFER
 }
 
+# Set the light on the keyboard to the brightness of the passed in argument. 10
+# works pretty nice.
 setKeyboardLight() {
     dbus-send --system --type=method_call  --dest="org.freedesktop.UPower" "/org/freedesktop/UPower/KbdBacklight" "org.freedesktop.UPower.KbdBacklight.SetBrightness" int32:$1
 }
