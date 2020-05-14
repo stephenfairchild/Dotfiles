@@ -192,5 +192,4 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
 map ,f :set foldmethod=indent<cr>zM<cr>
 map ,F :set foldmethod=manual<cr>zR<cr>
 
--call LoadFiles(["~/.vim/config/functions", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.local"])
-
+call LoadFiles(["~/.vim/config/functions","~/.vim/config/autocommands","~/.vim/config/fzf", "~/.vim/config/mappings", "~/.vim/config/environment", "~/.vim.local" ])
