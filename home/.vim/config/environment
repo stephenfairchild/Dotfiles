@@ -40,4 +40,7 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 " Run prettier on files on save if a config file is present
 let g:prettier#autoformat = 0
 
+" Always show the ale column for debugging
+let g:ale_sign_column_always = 1
+
 let g:vim_jsx_pretty_colorful_config = 1

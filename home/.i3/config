@@ -68,10 +68,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:dev"
-set $ws2 "2:tmux"
-set $ws3 "3:opera"
-set $ws4 "4:chromium"
+set $ws1 "1:tmux"
+set $ws2 "2:opera"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -186,9 +186,6 @@ bindsym $mod+shift+x exec i3lock
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --output DP2 --left-of HDMI1 --primary
 exec compton -b
-
-exec --no-startup-id i3-msg 'workspace 1:dev; exec /usr/bin/terminator'
-exec --no-startup-id i3-msg 'workspace 2:tmux; exec /usr/bin/terminator'
 
 # This allows the system to use notify-send to send notifications to DBUS.
 exec dunst
