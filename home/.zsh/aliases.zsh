@@ -50,4 +50,11 @@ alias gstsu='gsts -u'
 
 alias tm='tmux new'
 
+alias docker-prune=' \
+  docker container prune -f ; \
+  docker image prune -f ; \
+  docker network prune -f ; \
+  docker volume prune -f '
+
+
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true

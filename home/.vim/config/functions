@@ -1,0 +1,40 @@
+" StripTrailingWhitespace {{{
+function! StripTrailingWhitespace()
+  if exists('b:noStripWhitespace')
+    return
+  endif
+
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " do the business:
+  %s/\s\+$//e
+  " clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+" }}}
+
+"FZF open
+function! s:get_git_root()
+    if exists('*fugitive#repo')
+        try
+            return fugitive#repo().tree()
+        catch
+        endtry
+    endif
+    let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+    return v:shell_error ? '' : root
+endfunction
+
+"If in a git repository then only search the files
+"checked into git.
+function! SmartFzfSearching()
+    let root = s:get_git_root()
+    if empty(root)
+        Files
+    else
+        GFiles
+    endif
+endfunction

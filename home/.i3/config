@@ -21,12 +21,8 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# Go to previous tab
+#Go to previous tab
 bindsym $mod+Tab workspace back_and_forth
 
 # change focus with vim bindings
@@ -72,10 +68,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:tmux"
-set $ws2 "2:opera"
-set $ws3 "3:chromium"
-set $ws4 "4"
+set $ws1 "1:dev"
+set $ws2 "2:tmux"
+set $ws3 "3:opera"
+set $ws4 "4:chromium"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -83,8 +79,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-exec --no-startup-id i3-msg 'workspace 1:tmux; exec /usr/bin/terminator'
-#exec --no-startup-id i3-msg 'workspace 2:opera; exec /usr/bin/opera'
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -186,11 +180,15 @@ exec feh --bg-scale $HOME/Wallpaper/kyoto.jpg
 
 exec --no-startup-id ~/.scripts/blurme &
 
+# Lock screen
 bindsym $mod+shift+x exec i3lock
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --primary
+exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --output DP2 --left-of HDMI1 --primary
 exec compton -b
+
+exec --no-startup-id i3-msg 'workspace 1:dev; exec /usr/bin/terminator'
+exec --no-startup-id i3-msg 'workspace 2:tmux; exec /usr/bin/terminator'
 
 # This allows the system to use notify-send to send notifications to DBUS.
 exec dunst

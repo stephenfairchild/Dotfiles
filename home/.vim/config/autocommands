@@ -1,0 +1,15 @@
+" Don't strip whitespace on markdown files
+autocmd FileType markdown let b:noStripWhitespace=1
+
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
+"Buffers
+autocmd BufEnter * :syntax sync fromstart
+
+" Autoreload vim after a vimrc change
+augroup myvimrchooks
+    au!
+        autocmd bufwritepost .vimrc source ~/.vimrc
+    augroup END
+

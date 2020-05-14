@@ -1,0 +1,42 @@
+"Theming
+colorscheme lucius
+LuciusDarkLowContrast
+
+scriptencoding utf-8
+filetype on
+filetype plugin on
+syntax on
+
+"Settings
+set laststatus=2
+set showtabline=2           "Always show the tab line in the header
+set noshowmode
+set showcmd                 "Shows what you are typing as a command
+set number                  "Enables hybrid when set with relative
+set relativenumber          "Relative line numbers
+set nocompatible            "Noop
+set mousehide
+set termguicolors
+set ignorecase              "Case insensitive search
+set autoread                "Watch for file changse
+set pastetoggle=<F2>
+set hlsearch
+set grepprg=grep\ -nH\ $*
+set virtualedit=onemore     "Jump to the very end of a word and then go one more space over
+set nomodeline              "Modeline opens up security vulnerabilities
+set clipboard=unnamedplus
+set tabstop=4
+set softtabstop=4
+set expandtab
+set shiftwidth=4
+set smarttab
+set rtp+=~/.fzf "FZF
+
+let NERDTreeShowHidden=1
+
+let g:windowswap_map_keys = 0 "prevent default bindings
+
+" Run prettier on files on save if a config file is present
+let g:prettier#autoformat = 0
+
+let g:vim_jsx_pretty_colorful_config = 1

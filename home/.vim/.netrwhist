@@ -1,4 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/stephen'
-let g:netrw_dirhist_2='/etc/netctl'
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/stephen/.vim/config'
+let g:netrw_dirhist_1='/home/stephen/.vim'

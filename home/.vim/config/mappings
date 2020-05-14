@@ -1,0 +1,50 @@
+"Map leader to space
+let mapleader=" "
+
+map <C-n> :NERDTreeToggle<CR>
+
+"Split screen navigation remap hotkeys
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+"List buffers and prepare to move into one
+nnoremap <Leader>b :ls<CR>:b<Space>
+
+"Open split
+nnoremap <Leader>h :split<CR>
+nnoremap <Leader>v :vsplit<CR>
+
+"Go to last buffer
+nnoremap <BS> <C-^>
+
+"Navigate quickfix with arrows
+nnoremap <Right> :cnext<CR>
+nnoremap <Left> :cprev<CR>
+nnoremap gp :Ggrep<Space>
+nnoremap gb :Gblame<cr>
+
+"Quickly paste default register while in insert mode
+inoremap <C-F> <C-R>"
+
+"Toggle tagbar to show function/property definitions
+nmap <Leader>t :TagbarToggle<CR>
+let g:tagbar_left = 1
+
+nnoremap <Leader>p :call SmartFzfSearching()<CR>
+
+nmap g<C-p> :Files<CR>
+nmap gs<C-p> :GFiles?<CR>
+nmap <leader>T :BTags<CR>
+nmap g<leader>T :Tags<CR>
+nmap <leader>l :BLines<CR>
+nmap g<leader>l :Lines<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>c :BCommits<CR>
+nmap g<leader>c :Commits<CR>
+nmap <leader>m :Marks<CR>
+
+" Folding and unfolding
+map ,f :set foldmethod=indent<cr>zM<cr>
+map ,F :set foldmethod=manual<cr>zR<cr>
