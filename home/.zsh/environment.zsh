@@ -1,4 +1,4 @@
-export PATH="$PATH:/home/stephen/Android/Sdk/platform-tools"
+export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH=$PATH:/usr/local/bin
 
 export TERM=${TERM:-xterm-256color}
