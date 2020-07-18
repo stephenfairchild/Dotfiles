@@ -1,0 +1,41 @@
+[global_config]
+  handle_size = 0
+  window_state = maximise
+  borderless = True
+  extra_styling = False
+  tab_position = bottom
+  title_transmit_fg_color = "#000000"
+  title_transmit_bg_color = "#000000"
+  title_receive_fg_color = "#000000"
+  title_receive_bg_color = "#000000"
+  title_inactive_bg_color = "#000000"
+  inactive_color_offset = 0.8978494623655914
+  title_use_system_font = False
+  title_font = Fira Code Light 9
+[keybindings]
+[profiles]
+  [[default]]
+    allow_bold = False
+    icon_bell = False
+    background_color = "#2e3436"
+    background_darkness = 0.89
+    background_type = transparent
+    cursor_shape = ibeam
+    cursor_color = "#000000"
+    font = Fira Code weight=450 11
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+      profile = default
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
