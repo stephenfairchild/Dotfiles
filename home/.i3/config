@@ -184,7 +184,9 @@ exec --no-startup-id ~/.scripts/blurme &
 bindsym $mod+shift+x exec i3lock
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --output DP2 --left-of HDMI1 --primary
+
+# Configure monitors
+exec xrandr --output HDMI1 --left-of eDP1 --rate 60 --auto --rotate normal --output DP2 --left-of HDMI1 --primary
 exec compton -b
 
 # This allows the system to use notify-send to send notifications to DBUS.
