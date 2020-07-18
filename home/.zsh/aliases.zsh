@@ -48,6 +48,10 @@ alias gsta='gst apply'
 alias gsts='gst save'
 alias gstsu='gsts -u'
 
+# This will squash all commits on the current branch into one new commit with a new message.
+# Helpful to cleanup old commits that are now irrelevant.
+alias gsq='g reset $(g merge-base master $(g rev-parse --abbrev-ref HEAD))'
+
 alias tm='tmux new'
 
 alias docker-prune=' \
