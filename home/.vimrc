@@ -1,4 +1,3 @@
-" Utility function for bootstrapping {{{
 fun! LoadFiles(files)
     for file in a:files
         if filereadable(expand(file))
@@ -6,7 +5,6 @@ fun! LoadFiles(files)
         endif
     endfor
 endfun
-" }}}
 
 " Bootstrap dotfiles {{{
     " Setup vim-plugin manager {{{

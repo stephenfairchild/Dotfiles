@@ -13,5 +13,4 @@ fi
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export LANG=en_US.UTF-8
 export LC_MESSAGES="C"
-export LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so chromium
 

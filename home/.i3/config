@@ -15,6 +15,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec /usr/bin/terminator
+bindsym $mod+Tab exec /usr/bin/terminator
 
 # kill focused window
 bindsym $mod+q kill
@@ -23,7 +24,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec dmenu_run
 
 #Go to previous tab
-bindsym $mod+Tab workspace back_and_forth
+#bindsym $mod+Tab workspace back_and_forth
 
 # change focus with vim bindings
 bindsym $mod+h focus left

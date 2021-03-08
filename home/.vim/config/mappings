@@ -1,7 +1,7 @@
 "Map leader to space
 let mapleader=" "
 
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>nt :NERDTreeToggle<CR>
 
 "Split screen navigation remap hotkeys
 map <C-j> <C-W>j

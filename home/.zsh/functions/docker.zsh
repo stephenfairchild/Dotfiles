@@ -149,22 +149,19 @@ function dkr-proxy {
     mkdir -p ~/.config/nginx-proxy/{html,vhost.d,htpasswd,certs}
     touch ~/.config/nginx-proxy/proxy.conf
 
-    docker stop proxy && \
-        docker rm proxy
-
     docker pull jwilder/nginx-proxy; \
-        dkr-run --name proxy -d \
+        docker stop proxy; \
+        dkr-run --rm --name proxy -d \
             -p 80:80 \
             -p 443:443 \
             -v /var/run/docker.sock:/tmp/docker.sock:ro \
+            -v ~/.config/nginx-proxy/certs:/etc/nginx/certs:ro \
             -v ~/.config/nginx-proxy/html:/usr/share/nginx/html:rw \
             -v ~/.config/nginx-proxy/proxy.conf:/etc/nginx/conf.d/custom-proxy.conf:ro \
             -v ~/.config/nginx-proxy/vhost.d/:/etc/nginx/vhost.d:rw \
             -v ~/.config/nginx-proxy/htpasswd/:/etc/nginx/htpasswd:ro \
-            -v ~/.config/nginx-proxy/certs:/etc/nginx/certs:ro \
             --log-opt max-size=5M \
             --net bridge \
-            --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true \
             jwilder/nginx-proxy
 
     docker stop ssl && \
@@ -176,17 +173,18 @@ function dkr-proxy {
             -v ~/.config/nginx-proxy/certs:/etc/nginx/certs:rw \
             --volumes-from proxy \
             jrcs/letsencrypt-nginx-proxy-companion
+
+    docker network connect rsc proxy 2> /dev/null || true
 }
 
-function dkr-proxy-no-ssl {
+
+function dkr-proxy-with-tunnel {
     mkdir -p ~/.config/nginx-proxy/{html,vhost.d,htpasswd,certs}
     touch ~/.config/nginx-proxy/proxy.conf
 
-    docker stop proxy && \
-        docker rm proxy
-
-    #docker pull jwilder/nginx-proxy; \
-        dkr-run --name proxy -d \
+    docker pull jwilder/nginx-proxy; \
+        docker stop proxy; \
+        dkr-run --rm --name proxy -d \
             -p 80:80 \
             -v /var/run/docker.sock:/tmp/docker.sock:ro \
             -v ~/.config/nginx-proxy/html:/usr/share/nginx/html:rw \
@@ -195,7 +193,14 @@ function dkr-proxy-no-ssl {
             -v ~/.config/nginx-proxy/htpasswd/:/etc/nginx/htpasswd:ro \
             --log-opt max-size=5M \
             --net bridge \
-            --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true \
             jwilder/nginx-proxy
+
+    docker stop rstunnel; \
+        dkr-run --rm --name rstunnel -d -v $HOME/.ssh/id_rsa:/root/.ssh/id_rsa panubo/sshd \
+            ssh -o StrictHostKeyChecking=no -p 2204 -tNR 5003:10.0.0.9:80 sfairchild@dev-proxy.sqr.io
 }
 
+# Gracefully stop all docker containers.
+stop-all() {
+    docker stop $(docker ps -a -q)
+}

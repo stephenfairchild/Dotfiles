@@ -2,6 +2,7 @@
 export PATH=$PATH:/usr/local/bin
 export TERM=${TERM:-xterm-256color}
 export LANG=en_US.UTF-8
+export DOCS=$HOME/Documents
 
 # FZF
 export FZF_DEFAULT_OPS="--extended"
@@ -22,4 +23,3 @@ export GO111MODULE=on
 
 # Android
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
-

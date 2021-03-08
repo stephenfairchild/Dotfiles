@@ -9,6 +9,7 @@ filetype plugin on
 syntax on
 
 "Settings
+set conceallevel=0          "Never hide quotes in JSON files, etc.
 set laststatus=2
 set showtabline=2           "Always show the tab line in the header
 set noshowmode
@@ -32,6 +33,7 @@ set expandtab
 set shiftwidth=4
 set smarttab
 set rtp+=~/.fzf "FZF
+set nowrapscan              "n search doesn't start back at the beginning of the file
 
 let NERDTreeShowHidden=1
 
