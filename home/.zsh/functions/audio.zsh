@@ -1,3 +1,1 @@
-function set-audio {
-   pacmd set-default-sink $0
-}
+../../.homesick/repos/Dotfiles/home/.zsh/functions/audio.zsh

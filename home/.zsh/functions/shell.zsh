@@ -1,5 +1,1 @@
-# Kill all shell jobs running in the background.
-killalljobs() {
-    for pid in $( jobs -p ); do kill -9 $pid ; done ;
-}
-
+../../.homesick/repos/Dotfiles/home/.zsh/functions/shell.zsh
