@@ -2,12 +2,14 @@
     path = ~/.gitlocal
 [core]
 	excludesfile = ~/.gitignore_global
-[pager]
-    diff = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
+    pager = delta
+#[pager]
+#    diff = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified): '
 [credential]
 	helper = cache
 [diff]
     context = 6
+    colorMoved = default
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -25,3 +27,16 @@
 [diff-so-fancy]
 	changeHunkIndicators = false
 	stripLeadingSymbols = true
+[delta]
+    side-by-side = true
+    line-numbers = true
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    navigate = true
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box
+[interactive]
+    diffFilter = delta --color-only

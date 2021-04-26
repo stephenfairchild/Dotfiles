@@ -9,7 +9,7 @@ filetype plugin on
 syntax on
 
 "Settings
-set conceallevel=0          "Never hide quotes in JSON files, etc.
+set conceallevel=0          "Never show quotes in JSON files, etc.
 set laststatus=2
 set showtabline=2           "Always show the tab line in the header
 set noshowmode
@@ -46,3 +46,4 @@ let g:prettier#autoformat = 0
 let g:ale_sign_column_always = 1
 
 let g:vim_jsx_pretty_colorful_config = 1
+

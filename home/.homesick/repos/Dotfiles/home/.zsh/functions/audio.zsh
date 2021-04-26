@@ -1,3 +1,3 @@
-function set-audio {
-   pacmd set-default-sink $0
+set-audio() {
+   pacmd set-default-sink $1
 }

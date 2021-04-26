@@ -149,8 +149,10 @@ function dkr-proxy {
     mkdir -p ~/.config/nginx-proxy/{html,vhost.d,htpasswd,certs}
     touch ~/.config/nginx-proxy/proxy.conf
 
+    docker stop proxy && \
+        docker rm proxy
+
     docker pull jwilder/nginx-proxy; \
-        docker stop proxy; \
         dkr-run --rm --name proxy -d \
             -p 80:80 \
             -p 443:443 \
@@ -167,7 +169,8 @@ function dkr-proxy {
     docker stop ssl && \
         docker rm ssl
 
-    docker pull jrcs/letsencrypt-nginx-proxy-companion; \
+    docker pull jrcs/letsencrypt-nginx-proxy-companion && \
+        #dkr-run --env="DEFAULT_EMAIL=stephen.fairchild+1@researchsquare.com" --name ssl -d \
         dkr-run --name ssl -d \
             -v /var/run/docker.sock:/var/run/docker.sock:ro \
             -v ~/.config/nginx-proxy/certs:/etc/nginx/certs:rw \
@@ -176,7 +179,6 @@ function dkr-proxy {
 
     docker network connect rsc proxy 2> /dev/null || true
 }
-
 
 function dkr-proxy-with-tunnel {
     mkdir -p ~/.config/nginx-proxy/{html,vhost.d,htpasswd,certs}

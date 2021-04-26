@@ -34,6 +34,7 @@ let g:tagbar_left = 1
 
 nnoremap <Leader>p :call SmartFzfSearching()<CR>
 
+"FZF Searching commands
 nmap g<C-p> :Files<CR>
 nmap gs<C-p> :GFiles?<CR>
 nmap <leader>T :BTags<CR>
