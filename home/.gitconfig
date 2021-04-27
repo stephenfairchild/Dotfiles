@@ -40,3 +40,6 @@
     hunk-header-decoration-style = yellow box
 [interactive]
     diffFilter = delta --color-only
+[user]
+	email = stephen.fairchild@researchsquare.com
+	name = Stephen Fairchild
