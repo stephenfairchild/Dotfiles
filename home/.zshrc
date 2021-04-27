@@ -4,7 +4,6 @@
 . ~/.zsh/themes/spaceship.zsh
 load_file "aliases.zsh"
 load_file "functions.zsh"
-load_file "environment.zsh"
 load_file "setopt.zsh"
 load_file "exports.zsh"
 load_file "completion.zsh"
@@ -37,3 +36,7 @@ fi
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# Source FZF
+. /usr/share/fzf/completion.zsh
+. /usr/share/fzf/key-bindings.zsh
