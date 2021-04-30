@@ -177,7 +177,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Background
-exec feh --bg-scale $HOME/Wallpaper/castle.jpg
+exec feh --bg-scale $HOME/Downloads/wallpaper.jpg
 
 exec --no-startup-id ~/.scripts/blurme &
 
