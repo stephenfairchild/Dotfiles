@@ -29,3 +29,5 @@
 [user]
 	email = stephen.fairchild@researchsquare.com
 	name = Stephen Fairchild
+[init]
+	defaultBranch = main
