@@ -1,3 +1,6 @@
+# vim
+alias vim="nvim"
+
 # ls
 alias ls="ls -N --color=auto"
 alias l="ls -lhF"
