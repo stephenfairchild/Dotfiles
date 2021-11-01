@@ -19,7 +19,6 @@ set relativenumber          "Relative line numbers
 set nocompatible            "Noop
 set mousehide
 set termguicolors
-set ignorecase              "Case insensitive search
 set autoread                "Watch for file changse
 set pastetoggle=<F2>
 set hlsearch
