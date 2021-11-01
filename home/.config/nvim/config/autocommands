@@ -1,7 +1,8 @@
 " Don't strip whitespace on markdown files
 autocmd FileType markdown let b:noStripWhitespace=1
+
 autocmd BufWritePre * %s/\s\+$//e
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
 
 "Buffers
 autocmd BufEnter * :syntax sync fromstart
