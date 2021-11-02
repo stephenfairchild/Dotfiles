@@ -1,0 +1,22 @@
+session_name: rs-arkham
+windows:
+- window_name: zsh
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/arkham
+- window_name: code
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/arkham
+  panes:
+    - shell_command:
+        - vim
+- window_name: docker
+  layout: tiled
+  shell_command_before:
+    - cd /usr/local/bin/usr-local-bin && ./arkham-dev-build.sh
+- window_name: dotnet-commands
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/arkham
+

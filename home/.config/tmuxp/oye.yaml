@@ -1,0 +1,43 @@
+session_name: oye-api
+windows:
+- window_name: zsh
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/oye
+- window_name: graph
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/oye/graph
+  panes:
+    - shell_command:
+        - vim
+- window_name: server
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/oye/graph
+  panes:
+    - shell_command:
+        - npm run start
+- window_name: mobile
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/oye/mobile
+    - vim
+- window_name: expo
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/oye/mobile
+    - npm run start
+- window_name: docs
+  layout: tiled
+  shell_command_before:
+    - cd ~/documents
+  panes:
+    - shell_command:
+        - vim
+
+
+
+
+
+
