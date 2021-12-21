@@ -1,3 +1,15 @@
+# Vim hack to paste to and from clipboard to take contents
+# in and out of vim.
+yanktoclipboard() {
+    echo $BUFFER | xsel -i -b
+}
+
+# Vim hack to paste to and from clipboard to take contents
+# in and out of vim.
+pastefromclipboard() {
+    RBUFFER=$(xsel -o -b </dev/null)$RBUFFER
+}
+
 bindkey -e ## Default to standard emacs bindings
 
 autoload -U edit-command-line
@@ -11,3 +23,10 @@ bindkey "^[m" copy-earlier-word
 
 autoload -U select-word-style
 select-word-style bash
+
+# Rebind some keys to call custom copy/paste functions
+zle -N yanktoclipboard
+zle -N pastefromclipboard
+bindkey -a 'yy' yanktoclipboard
+bindkey -a 'p' pastefromclipboard
+

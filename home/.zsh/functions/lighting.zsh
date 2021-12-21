@@ -1,1 +1,0 @@
-../../.homesick/repos/Dotfiles/home/.zsh/functions/lighting.zsh
