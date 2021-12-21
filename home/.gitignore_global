@@ -6,3 +6,4 @@ tags.vendors
 .rest
 http.rest
 stephen_scripts
+.env
