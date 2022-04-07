@@ -1,6 +1,8 @@
-"Theming
+"===================================================
+" Theming
+"===================================================
 colorscheme one
-set background=dark " for the dark version
+set background=dark
 let g:airline_theme='minimalist'
 
 scriptencoding utf-8
@@ -8,7 +10,9 @@ filetype on
 filetype plugin on
 syntax on
 
-"Settings
+"===================================================
+" Settings
+"===================================================
 set conceallevel=0          "Never show quotes in JSON files, etc.
 set laststatus=2
 set showtabline=2           "Always show the tab line in the header

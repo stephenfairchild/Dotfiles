@@ -1,7 +1,9 @@
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
 
-"Buffers
+"===================================================
+" Buffers
+"===================================================
 autocmd BufEnter * :syntax sync fromstart
 
 " Autoreload vim after a vimrc change
