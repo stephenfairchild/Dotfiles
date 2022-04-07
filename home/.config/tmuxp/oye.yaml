@@ -7,6 +7,7 @@ windows:
 - window_name: graph
   layout: tiled
   shell_command_before:
+    - start-database p
     - cd ~/Apps/oye/graph
   panes:
     - shell_command:
@@ -28,6 +29,11 @@ windows:
   shell_command_before:
     - cd ~/Apps/oye/mobile
     - npm run start
+- window_name: studio
+  layout: tiled
+  shell_command_before:
+    - cd ~/Apps/oye/graph
+    - npx prisma studio
 - window_name: docs
   layout: tiled
   shell_command_before:

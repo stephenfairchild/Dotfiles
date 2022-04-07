@@ -23,7 +23,7 @@ nnoremap <BS> <C-^>
 nnoremap <Right> :cnext<CR>
 nnoremap <Left> :cprev<CR>
 nnoremap gp :Ggrep<Space>
-nnoremap gb :Gblame<cr>
+nnoremap gb :Git blame<cr>
 
 "Quickly paste default register while in insert mode
 inoremap <C-F> <C-R>"

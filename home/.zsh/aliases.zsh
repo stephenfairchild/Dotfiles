@@ -47,8 +47,6 @@ alias tmux='tmux -2 -u'
 alias tl='tmux list-sessions'
 alias tks='tmux kill-session'
 
-alias ode='operations-dev-env'
-
 # docker
 alias docker-prune=' \
   docker container prune -f ; \
@@ -57,8 +55,6 @@ alias docker-prune=' \
   docker volume prune -f '
 
 alias list-audio='pactl list short sinks' # show possible sound devices that can be selected.
-
-alias svs-rds-tunnel='ssh -i ~/Documents/codes/pem/production.pem -fNl ec2-user -L 3306:mysql.cy7ws0gobkpf.us-east-2.rds.amazonaws.com:3306 3.14.129.100'
 
 alias sail='bash vendor/bin/sail'
 

@@ -11,7 +11,7 @@ load_file "bindkeys.zsh"
 load_file "history.zsh"
 
 powerline-daemon -q
-. /usr/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
 
 [ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
 

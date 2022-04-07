@@ -29,4 +29,3 @@ zle -N yanktoclipboard
 zle -N pastefromclipboard
 bindkey -a 'yy' yanktoclipboard
 bindkey -a 'p' pastefromclipboard
-

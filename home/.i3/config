@@ -130,7 +130,12 @@ bindsym $mod+shift+x exec i3lock
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Configure monitors
-exec xrandr --output HDMI1 --right-of eDP1 --rate 60 --auto --rotate normal --output DP2 --right-of HDMI1 --primary
+#exec xrandr --output HDMI1 --right-of eDP1 --rate 60 --auto --rotate normal --output DP2 --right-of HDMI1 --primary
+# temporarily swap my monitor setup around to see if this is more productive
+exec xrandr \
+--output DP2 --right-of HDMI1 --rotate left \
+--output HDMI1 --right-of eDP1 --rate 60 --auto --rotate normal --primary
+
 exec compton -b
 
 # This allows the system to use notify-send to send notifications to DBUS.
