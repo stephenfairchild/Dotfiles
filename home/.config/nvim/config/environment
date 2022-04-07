@@ -45,38 +45,3 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 let g:ale_sign_column_always = 1
 
 let g:vim_jsx_pretty_colorful_config = 1
-
-" C# linter fix
-let g:ale_linters = {
-\ 'cs': ['OmniSharp']
-\}
-
-" C# use mono
-let g:OmniSharp_server_use_mono = 1
-
-" OmniSharp: {{{
-let g:OmniSharp_popup_position = 'peek'
-if has('nvim')
-  let g:OmniSharp_popup_options = {
-  \ 'winhl': 'Normal:NormalFloat'
-  \}
-else
-  let g:OmniSharp_popup_options = {
-  \ 'highlight': 'Normal',
-  \ 'padding': [0, 0, 0, 0],
-  \ 'border': [1]
-  \}
-endif
-let g:OmniSharp_popup_mappings = {
-\ 'sigNext': '<C-n>',
-\ 'sigPrev': '<C-p>',
-\ 'pageDown': ['<C-f>', '<PageDown>'],
-\ 'pageUp': ['<C-b>', '<PageUp>']
-\}
-
-let g:OmniSharp_want_snippet = 1
-
-let g:OmniSharp_highlight_groups = {
-\ 'ExcludedCode': 'NonText'
-\}
-" }}}
