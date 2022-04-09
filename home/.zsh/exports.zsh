@@ -8,6 +8,7 @@ export LC_MESSAGES="C"
 export TERM=${TERM:-xterm-256color}
 export LANG=en_US.UTF-8
 export DOCS=$HOME/documents
+export DOTS=$HOME/.homesick/repos/Dotfiles
 export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_OPTS='
     --color fg:223,bg:-1,hl:65,fg+:142,bg+:-1,hl+:108
