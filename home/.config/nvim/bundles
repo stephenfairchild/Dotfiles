@@ -18,6 +18,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'morhetz/gruvbox'
 Plug 'ncm2/ncm2'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'NLKNguyen/pipe.vim'
 Plug 'NLKNguyen/pipe-mysql.vim'
 Plug 'OmniSharp/omnisharp-vim'
