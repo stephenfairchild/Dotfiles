@@ -41,6 +41,7 @@ endfun
 
 let config_files= [
     \"~/.config/nvim/config/functions",
+    \"~/.config/nvim/config/environment",
     \"~/.config/nvim/config/autocommands",
     \"~/.config/nvim/config/fzf",
     \"~/.config/nvim/config/mappings",
