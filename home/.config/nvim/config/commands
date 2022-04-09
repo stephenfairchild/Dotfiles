@@ -1,9 +1,8 @@
+"===================================================
+" Auto commands
+"===================================================
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
-
-"===================================================
-" Buffers
-"===================================================
 autocmd BufEnter * :syntax sync fromstart
 
 " Autoreload vim after a vimrc change
@@ -14,3 +13,8 @@ augroup myvimrchooks
 
 " Autocomplete w/PhpActor
 autocmd BufEnter * call ncm2#enable_for_buffer()
+
+"===================================================
+" Custom commands
+"===================================================
+command! Snip call :CocCommand snippets.editSnippets
