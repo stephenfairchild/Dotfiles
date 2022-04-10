@@ -1,34 +1,28 @@
 "===================================================
-" Theming
+" Vim
 "===================================================
 colorscheme one
-set background=dark
-let g:airline_theme='minimalist'
-
 scriptencoding utf-8
 filetype on
 filetype plugin on
 syntax on
-
-"===================================================
-" Settings
-"===================================================
-set conceallevel=0          "Never show quotes in JSON files, etc.
+set background=dark
+set conceallevel=0
 set laststatus=2
-set showtabline=2           "Always show the tab line in the header
+set showtabline=2 
 set noshowmode
-set showcmd                 "Shows what you are typing as a command
-set number                  "Enables hybrid when set with relative
-set relativenumber          "Relative line numbers
-set nocompatible            "Noop
+set showcmd 
+set number 
+set relativenumber 
+set nocompatible   
 set mousehide
 set termguicolors
-set autoread                "Watch for file changse
+set autoread       
 set pastetoggle=<F2>
 set hlsearch
 set grepprg=grep\ -nH\ $*
-set virtualedit=onemore     "Jump to the very end of a word and then go one more space over
-set nomodeline              "Modeline opens up security vulnerabilities
+set virtualedit=onemore 
+set nomodeline          
 set clipboard=unnamedplus
 set tabstop=4
 set softtabstop=4
@@ -36,16 +30,33 @@ set expandtab
 set shiftwidth=4
 set smarttab
 set rtp+=~/.fzf "FZF
-set nowrapscan              "n search doesn't start back at the beginning of the file
-set completeopt=noinsert,menuone,noselect " required for phpactive and ncm2-phpactor
+set nowrapscan          
+
+"===================================================
+" Third Party / Plugins / Libraries
+"===================================================
+let g:airline_theme='minimalist'
 let NERDTreeShowHidden=1
-
-let g:windowswap_map_keys = 0 "prevent default bindings
-
-" Run prettier on files on save if a config file is present
-" let g:prettier#autoformat = 0
-
-" Always show the ale column for debugging
+let g:windowswap_map_keys = 0
 let g:ale_sign_column_always = 1
-
 let g:vim_jsx_pretty_colorful_config = 1
+let g:tagbar_left = 1
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-h': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'GruvboxAqua'],
+  \ 'fg+':     ['fg', 'String'],
+  \ 'bg+':     ['bg', 'Normal'],
+  \ 'hl+':     ['fg', 'GruvboxBlue'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'GruvboxPurple'],
+  \ 'pointer': ['fg', 'GruvboxPurple'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }

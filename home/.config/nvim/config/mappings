@@ -1,40 +1,28 @@
-"Map leader to space
 let mapleader=" "
 
-map <Leader>nt :NERDTreeToggle<CR>
+"==================================
+" Splits
+"==================================
+nnoremap <Leader>h :split<CR>
+nnoremap <Leader>v :vsplit<CR>
 
-"Split screen navigation remap hotkeys
+"==================================
+" Movement
+"==================================
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-"List buffers and prepare to move into one
-nnoremap <Leader>b :ls<CR>:b<Space>
-
-"Open split
-nnoremap <Leader>h :split<CR>
-nnoremap <Leader>v :vsplit<CR>
-
-"Go to last buffer
 nnoremap <BS> <C-^>
-
-"Navigate quickfix with arrows
 nnoremap <Right> :cnext<CR>
 nnoremap <Left> :cprev<CR>
 nnoremap gp :Ggrep<Space>
-nnoremap gb :Git blame<cr>
 
-"Quickly paste default register while in insert mode
-inoremap <C-F> <C-R>"
-
-"Toggle tagbar to show function/property definitions
-nmap <Leader>t :TagbarToggle<CR>
-let g:tagbar_left = 1
-
+"==================================
+" Searching
+"==================================
+nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>p :call SmartFzfSearching()<CR>
-
-"FZF Searching commands
 nmap g<C-p> :Files<CR>
 nmap gs<C-p> :GFiles?<CR>
 nmap <leader>T :BTags<CR>
@@ -45,13 +33,36 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>c :BCommits<CR>
 nmap g<leader>c :Commits<CR>
 nmap <leader>m :Marks<CR>
+nnoremap gb :Git blame<cr>
+nmap <Leader>t :TagbarToggle<CR>
 
-" Folding and unfolding
+"==================================
+" Folding
+"==================================
 map ,f :set foldmethod=indent<cr>zM<cr>
 map ,F :set foldmethod=manual<cr>zR<cr>
 
-" Remap keys for gotos
+"==================================
+" Coc
+"==================================
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+"==================================
+" NERDTree
+"==================================
+map <Leader>nt :NERDTreeToggle<CR>

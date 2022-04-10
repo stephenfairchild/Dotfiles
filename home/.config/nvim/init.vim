@@ -43,7 +43,6 @@ let config_files= [
     \"~/.config/nvim/config/functions",
     \"~/.config/nvim/config/environment",
     \"~/.config/nvim/config/commands",
-    \"~/.config/nvim/config/fzf",
     \"~/.config/nvim/config/mappings",
     \"~/.config/nvim/.vim.local",
 \]
