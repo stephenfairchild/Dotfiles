@@ -16,3 +16,7 @@
 - file tree to highlight file that Im viewing
 - nerdcommenter or similiar to quickly comment groups of code with leader+slash or ++
 - show list of problems in vim pane 
+
+# Refactors/Cleanup
+
+- (ssh-agent-cleanup) Move ssh-agent start process from .zshrc and into systemd

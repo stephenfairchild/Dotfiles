@@ -10,21 +10,12 @@ load_file "completion.zsh"
 load_file "bindkeys.zsh"
 load_file "history.zsh"
 
-powerline-daemon -q
-. /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
-
-[ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
+# TODO (ssh-agent-cleanup)
 # Start ssh-agent and only run one at a time.
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
@@ -33,10 +24,18 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
 fi
 
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+[ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
 
-# Source FZF
+# Load FZF
 . /usr/share/fzf/completion.zsh
 . /usr/share/fzf/key-bindings.zsh
+
+# Load NVM
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Load Powerline
+powerline-daemon -q
+. /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
+
+
