@@ -1,7 +1,5 @@
 . ~/.zsh/functions.zsh
 
-. ~/.zsh/git.zsh
-. ~/.zsh/themes/spaceship.zsh
 load_file "aliases.zsh"
 load_file "functions.zsh"
 load_file "setopt.zsh"
@@ -9,6 +7,9 @@ load_file "exports.zsh"
 load_file "completion.zsh"
 load_file "bindkeys.zsh"
 load_file "history.zsh"
+load_file "docker.zsh"
+load_file "git.zsh"
+load_file "themes/spaceship.zsh"
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
