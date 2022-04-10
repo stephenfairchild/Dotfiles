@@ -56,6 +56,4 @@ alias docker-prune=' \
 
 alias list-audio='pactl list short sinks' # show possible sound devices that can be selected.
 
-alias sail='bash vendor/bin/sail'
-
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
