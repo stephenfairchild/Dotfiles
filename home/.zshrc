@@ -9,7 +9,6 @@ load_file "bindkeys.zsh"
 load_file "history.zsh"
 load_file "docker.zsh"
 load_file "git.zsh"
-load_file "themes/spaceship.zsh"
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
@@ -34,8 +33,5 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Load Powerline
-powerline-daemon -q
-. /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
-
+eval "$(starship init zsh)"
 
