@@ -10,7 +10,6 @@ load_file "completion.zsh"
 load_file "bindkeys.zsh"
 load_file "history.zsh"
 
-
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi

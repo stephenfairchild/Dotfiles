@@ -1,9 +1,8 @@
 
 # Bugs
 
-- anytime we upgrade python powerline in the .zshrc file breaks
-- polybar/i3 status is broke
-
+- anytime we upgrade python the powerline package in the .zshrc file breaks
+- polybar/i3 status is broke. Also, why do we have both?
 
 # Features
 
