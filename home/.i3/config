@@ -122,7 +122,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Background
-exec feh --bg-scale $HOME/Downloads/wallpaper.jpg
+exec feh --bg-scale $HOME/.config/wallpaper.jpg
 
 # Lock screen
 bindsym $mod+shift+x exec i3lock
