@@ -1,7 +1,6 @@
 "===================================================
 " Auto
 "===================================================
-autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
 autocmd BufEnter * :syntax sync fromstart
 

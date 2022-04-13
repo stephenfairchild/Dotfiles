@@ -1,13 +1,11 @@
 . ~/.zsh/functions.zsh
 
 load_file "aliases.zsh"
-load_file "functions.zsh"
 load_file "setopt.zsh"
 load_file "exports.zsh"
 load_file "completion.zsh"
 load_file "bindkeys.zsh"
 load_file "history.zsh"
-load_file "docker.zsh"
 load_file "git.zsh"
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
@@ -23,15 +21,12 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
 fi
 
-[ -e ~/.zshrc.local ] && . ~/.zshrc.local || true
-
 # Load FZF
 . /usr/share/fzf/completion.zsh
 . /usr/share/fzf/key-bindings.zsh
 
 # Load NVM
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 eval "$(starship init zsh)"
-
