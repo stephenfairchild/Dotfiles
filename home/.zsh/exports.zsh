@@ -20,7 +20,11 @@ export NVM_DIR="$HOME/.config"
 export GOPROXY="https://proxy.golang.org,direct"
 export GOSUMDB=off
 export GO111MODULE=on
+export FLYCTL_INSTALL="/home/stephen/.fly"
+
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH="$PATH:/usr/local/bin/usr-local-bin"
 export PATH=$PATH:/usr/local/bin
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
