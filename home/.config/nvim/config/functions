@@ -30,7 +30,7 @@ fun! SetupVimPlug()
     if exists('g:first_run')
         PlugInstall
 
-        # Install typescript and rust language servers
+        " Install typescript and rust language servers
         CocInstall coc-tsserver
         CocInstall coc-rls
     endif
