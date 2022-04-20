@@ -1,5 +1,4 @@
 Plug 'airblade/vim-gitgutter'
-Plug 'craigemery/vim-autotag'
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'diepm/vim-rest-console'
