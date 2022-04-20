@@ -21,7 +21,7 @@ else
     NORMAL=""
 fi
 
-echo "${BOLD}Note: git, vim and zsh are required."
+echo "${BOLD}Note: git, nvim and zsh are required."
 
 failed=false
 packages=( git vim zsh )
