@@ -44,8 +44,6 @@ fi
 git clone git://github.com/andsens/homeshick.git ${HOME}/.homesick/repos/homeshick
 ${HOME}/.homesick/repos/homeshick/bin/homeshick clone -b git@github.com:stephenfairchild/Dotfiles.git
 
-# @todo: loop through pre-existing linkable files and directories and move them to `.dotsave` or something.
-
 ${HOME}/.homesick/repos/homeshick/bin/homeshick link -b
 
 echo "${GREEN}${BOLD}Installation complete! You can now run \`sudo chsh -s /bin/zsh $(whoami)\` to set zsh as your default shell."
