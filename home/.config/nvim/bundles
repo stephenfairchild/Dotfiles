@@ -29,7 +29,6 @@ Plug 'prettier/vim-prettier'
 Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'sheerun/vim-polyglot'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-eunuch'
