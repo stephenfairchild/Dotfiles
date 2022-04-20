@@ -32,11 +32,7 @@ done
 
 if ${failed} == true; then
     echo "${NORMAL}Please ensure you have all required packages installed. i.e.:"
-    echo "${YELLOW}${BOLD}Arch: ${NORMAL}sudo pacman -S git vim zsh"
-    echo "${YELLOW}${BOLD}Centos: ${NORMAL}sudo yum install git vim zsh"
-    echo "${YELLOW}${BOLD}Fedora: ${NORMAL}sudo dnf install git vim zsh"
-    echo "${YELLOW}${BOLD}Homebrew: ${NORMAL}sudo brew install git vim zsh"
-    echo "${YELLOW}${BOLD}Ubuntu: ${NORMAL}apt-get install git vim zsh"
+    echo "${YELLOW}${BOLD}Arch: ${NORMAL}sudo pacman -S git nvim zsh"
     echo "After doing so, re-run this script."
     exit 1
 fi
