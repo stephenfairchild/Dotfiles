@@ -4,6 +4,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -22,4 +23,3 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'VundleVim/Vundle.vim'
 Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
-

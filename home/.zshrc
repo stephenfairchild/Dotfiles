@@ -7,6 +7,7 @@ load_file "completion.zsh"
 load_file "bindkeys.zsh"
 load_file "history.zsh"
 load_file "git.zsh"
+load_file "mx.zsh"
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
