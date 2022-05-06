@@ -1,4 +1,4 @@
-session_name: system
+session_name: sys
 windows:
 - window_name: zsh
   layout: tiled
@@ -32,9 +32,3 @@ windows:
   panes:
     - shell_command:
         - nvim
-
-
-
-
-
-

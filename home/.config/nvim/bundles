@@ -23,3 +23,5 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'VundleVim/Vundle.vim'
 Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+
+Plug 'ryanoasis/vim-devicons'

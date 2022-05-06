@@ -1,6 +1,7 @@
 "===================================================
 " Auto
 "===================================================
+autocmd VimEnter * NERDTree
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
 autocmd BufEnter * :syntax sync fromstart
 
