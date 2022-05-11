@@ -144,3 +144,7 @@ exec compton -b
 
 # This allows the system to use notify-send to send notifications to DBUS.
 exec dunst
+
+exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/kitty'
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/brave'
+
