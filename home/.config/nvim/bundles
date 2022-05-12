@@ -1,5 +1,6 @@
 Plug 'airblade/vim-gitgutter'
 Plug 'diepm/vim-rest-console'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'HerringtonDarkholme/yats.vim'
