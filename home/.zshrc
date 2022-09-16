@@ -31,3 +31,10 @@ fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/stephen/.bun/_bun" ] && source "/home/stephen/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/home/stephen/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
