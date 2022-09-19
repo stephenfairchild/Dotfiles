@@ -143,5 +143,3 @@ function dkr-logs {
 function stop-all() {
     docker stop $(docker ps -a -q)
 }
-
-
