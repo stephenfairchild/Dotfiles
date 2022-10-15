@@ -20,3 +20,10 @@ map('n', '<C-Left>', ':vertical resize -2<CR>', options)
 map('n', '<C-Right>', ':vertical resize +2<CR>', options)
 map('i', ';;', '<Esc>A;<Esc>', options)
 map('i', ',,', '<Esc>A,<Esc>', options)
+map('n','<leader>jt', "<cmd>lua run_jest_test()<CR>", options)
+
+-- Runs Jest on the file the cursor is over
+function run_jest_test()
+    -- TODO: If split is open, then use the existing split
+    vim.cmd('vsplit')
+end

@@ -27,9 +27,30 @@ return require('packer').startup(function(use)
   }
   use 'scrooloose/nerdtree'
 
+  -- Completion / Snippets
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
   -- Git
   use 'airblade/vim-gitgutter'
   use 'tpope/vim-fugitive'
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function ()
+      require"octo".setup()
+    end
+  }
 
   -- HTTP / DB
   use 'diepm/vim-rest-console'
@@ -49,6 +70,7 @@ return require('packer').startup(function(use)
 
   -- Rust
   use 'rust-lang/rust.vim'
+	use 'simrat39/rust-tools.nvim'
 
   if packer_bootstrap then
     require('packer').sync()
