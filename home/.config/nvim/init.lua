@@ -2,5 +2,6 @@ require('plugins')
 require('settings')
 require('mappings')
 require('treesitter')
-require('telescope').load_extension('gh')
 require('completion')
+require('telescope-settings')
+

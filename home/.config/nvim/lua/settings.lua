@@ -1,14 +1,9 @@
 local o = vim.o
-local wo = vim.wo
-local bo = vim.bo
 
 o.completeopt=menu,menuone,noselect
-vim.cmd[[colorscheme nord]]
+vim.cmd[[colorscheme tokyonight]]
 o.background='dark'
 vim.cmd('syntax on')
---scriptencoding utf-8
---filetype on
---filetype plugin on
 o.foldmethod='indent'
 o.foldlevel=1
 o.foldclose=all
@@ -37,4 +32,5 @@ o.nowrapscan=true
 
 vim.cmd('let g:rustfmt_autosave = 1')
 vim.cmd('let NERDTreeShowHidden=1') -- show dotfiles
+vim.cmd('autocmd BufNewFile *.sh 0r ~/.config/nvim/skeleton-templates/shell.sh')
 

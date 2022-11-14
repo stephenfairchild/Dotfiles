@@ -21,7 +21,9 @@ export GOPROXY="https://proxy.golang.org,direct"
 export GOSUMDB=off
 export GO111MODULE=on
 export FLYCTL_INSTALL="/home/stephen/.fly"
-
+export DENO_INSTALL="/home/stephen/.deno"
+  
+export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH="$PATH:$HOME/Apps/usr-local-bin"

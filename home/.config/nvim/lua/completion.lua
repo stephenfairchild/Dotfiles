@@ -8,6 +8,8 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -60,7 +62,7 @@ cmp.setup.cmdline('/', {
   }
 })
 
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_attach = function(client, buf)
 	-- Example maps, set your own with vim.api.nvim_buf_set_keymap(buf, "n", <lhs>, <rhs>, { desc = <desc> })
 	-- or a plugin like which-key.nvim
