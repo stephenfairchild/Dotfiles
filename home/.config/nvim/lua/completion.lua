@@ -46,13 +46,14 @@ cmp.setup({
 })
 
 -- Controls what happens when hitting ":" to search commands on the command line
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' },
-    { name = 'cmdline' }
-  })
-})
+-- TODO: This is useful but currently buggy :(
+--cmp.setup.cmdline(':', {
+--  mapping = cmp.mapping.preset.cmdline(),
+--  sources = cmp.config.sources({
+--    { name = 'path' },
+--    { name = 'cmdline' }
+--  })
+--})
 
 -- Controls what happens when hitting "/" to search in the command line
 cmp.setup.cmdline('/', {
