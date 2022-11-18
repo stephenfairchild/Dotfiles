@@ -65,6 +65,7 @@ return require('packer').startup(function(use)
   use 'editorconfig/editorconfig-vim'
   use 'nvim-treesitter/nvim-treesitter'
 
+
   -- GraphQL
   use 'jparise/vim-graphql'
 
