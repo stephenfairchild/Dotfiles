@@ -4,4 +4,4 @@ require('mappings')
 require('treesitter')
 require('completion')
 require('telescope-settings')
-
+require('lsp')
