@@ -13,10 +13,15 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
+-- Typescript
 lspconfig.tsserver.setup({
     on_attach = on_attach,
     flags = lsp_flags,
 })
+
+-- Terraform
+lspconfig.terraformls.setup{}
+lspconfig.tflint.setup{}
 
 -- use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

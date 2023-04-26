@@ -1,2 +1,3 @@
 .vim.local
 home/.config/nvim/plugin/packer_compiled.lua
+bookmarks.md

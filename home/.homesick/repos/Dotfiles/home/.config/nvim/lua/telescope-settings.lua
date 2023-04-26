@@ -1,5 +1,4 @@
 require('telescope').load_extension('gh')
-require('telescope').load_extension('bookmarks')
 -- require('telescope').setup {
 --   extensions = {
 --     bookmarks = {
@@ -11,4 +10,4 @@ require('telescope').load_extension('bookmarks')
 --     },
 --   }
 -- }
--- 
+--

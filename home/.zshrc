@@ -26,7 +26,7 @@ fi
 . /usr/share/fzf/completion.zsh
 . /usr/share/fzf/key-bindings.zsh
 
-# Load NVM
+# Load NVM and set default Node version
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 

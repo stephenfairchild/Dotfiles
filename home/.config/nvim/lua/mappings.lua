@@ -1,3 +1,5 @@
+-- require'moonshine'.hello("rust"))
+
 local map = vim.api.nvim_set_keymap
 options = { noremap = true }
 
@@ -20,6 +22,12 @@ map('n', '<C-Right>', ':vertical resize +2<CR>', options)
 map('i', ';;', '<Esc>A;<Esc>', options)
 map('i', ',,', '<Esc>A,<Esc>', options)
 map('n','<leader>jt', "<cmd>lua run_jest_test()<CR>", options)
+
+-- Quickly call Terraform commands in normal mode
+map("n", "<leader>ti", ":!terraform init<CR>", options)
+map("n", "<leader>tv", ":!terraform validate<CR>", options)
+map("n", "<leader>tp", ":!terraform plan<CR>", options)
+map("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", options)
 
 -- Runs Jest on the file the cursor is over
 function run_jest_test()

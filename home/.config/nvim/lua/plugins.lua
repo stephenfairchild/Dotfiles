@@ -14,8 +14,10 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use '~/Apps/moonshine.nvim'
+
   -- Theming
-  use 'shaunsingh/nord.nvim'
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- Searching
   use {
@@ -36,7 +38,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
-
+  use 'hashivim/vim-terraform'
   -- Git
   use 'airblade/vim-gitgutter'
   use 'tpope/vim-fugitive'

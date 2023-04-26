@@ -5,3 +5,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+
+-- Terraform Treesitter
+-- :TSInstall hcl

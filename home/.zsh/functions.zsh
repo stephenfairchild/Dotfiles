@@ -139,7 +139,14 @@ function dkr-logs {
     ${cmd} logs -f --tail ${2:-100} ${__params[@]} | grep -iE --color=auto '(exception|fatal|error|warning|info|trigger_error)|$'
 }
 
-# Gracefully stop all docker containers.
+# gracefully stop all docker containers.
 function stop-all() {
     docker stop $(docker ps -a -q)
+}
+
+# Loads a group of environment variables in file located in the ~/Apps/envs folder
+# set-env <.env-file-name>
+function set-env {
+    while read -r line; do export $line; done < ~/Apps/envs/$1
+    echo "Loaded environment: $1"
 }
