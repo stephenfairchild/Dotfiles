@@ -1,1 +1,0 @@
-../../../.homesick/repos/Dotfiles/home/.config/nvim/lua/telescope-settings.lua
