@@ -17,3 +17,11 @@ Example:
 ```bash
 stow -t ~ vim
 ```
+
+If you want to link a package from a namespace then you can do it like this:
+
+```bash
+stow -d terminals -t ~ wezterm
+```
+
+
