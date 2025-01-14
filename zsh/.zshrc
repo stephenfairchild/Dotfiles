@@ -38,3 +38,4 @@ eval "$(starship init zsh)"
 # Bun
 export BUN_INSTALL="/home/stephen/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$(python3 -m site --user-base)/bin:$PATH"

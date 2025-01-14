@@ -63,6 +63,13 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Automatically run language formatter on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -102,24 +109,24 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	{ "tpope/vim-fugitive", event = "VimEnter" },
 	{ "github/copilot.vim", event = "VimEnter" },
 	{ "Bilal2453/luvit-meta", lazy = true },
-
+	"editorconfig/editorconfig-vim",
 	require("plugins/telescope"),
 	require("plugins/lsp"),
 	require("plugins/cmp"),
 	require("plugins/treesitter"),
 	require("plugins/whichkey"),
-	require("plugins/conform"),
 	require("plugins/mini"),
 	require("plugins/dap"),
 
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
+		opts = {
+			disable_formatting = true,
+		},
 	},
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:
