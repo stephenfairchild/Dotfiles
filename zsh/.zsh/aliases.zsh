@@ -1,8 +1,4 @@
-# vim
-alias vim="nvim"
-
 # ls
-alias ls="ls -N --color=auto"
 alias l="ls -lhF"
 alias ll="ls -alhF"
 
@@ -40,6 +36,8 @@ alias gpoh='gP origin HEAD'
 # Helpful to cleanup old commits that are now irrelevant. Will require a force push.
 alias gsq='g reset $(g merge-base main $(g rev-parse --abbrev-ref HEAD))'
 alias gprs='gh pr status'
+alias gw='g worktree'
+alias gwl='gw list'
 
 # tmux
 alias tm='tmux new'
@@ -54,6 +52,10 @@ alias docker-prune=' \
   docker network prune -f ; \
   docker volume prune -f '
 
-alias list-audio='pactl list short sinks' # show possible sound devices that can be selected.
+# vim
+alias nvim=~/Code/usr-local-bin/nvim-macos-arm64/bin/nvim
+alias v="nvim"
+alias vim="v"
 
 [ -e ~/.aliases.local ] && . ~/.aliases.local || true
+

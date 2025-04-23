@@ -109,10 +109,11 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	{ "tpope/vim-fugitive", event = "VimEnter" },
-	{ "github/copilot.vim", event = "VimEnter" },
+	{ "tpope/vim-fugitive",   event = "VimEnter" },
+	{ "github/copilot.vim",   event = "VimEnter" },
 	{ "Bilal2453/luvit-meta", lazy = true },
 	"editorconfig/editorconfig-vim",
+	require('makefile'),
 	require("plugins/telescope"),
 	require("plugins/lsp"),
 	require("plugins/cmp"),
@@ -120,6 +121,7 @@ require("lazy").setup({
 	require("plugins/whichkey"),
 	require("plugins/mini"),
 	require("plugins/dap"),
+
 
 	{
 		"pmizio/typescript-tools.nvim",
@@ -199,5 +201,3 @@ require("lazy").setup({
 		},
 	},
 })
-
--- The line beneath this is called `modeline`. See `:help modeline`
