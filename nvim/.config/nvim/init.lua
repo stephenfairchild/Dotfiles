@@ -110,7 +110,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	{ "tpope/vim-fugitive",   event = "VimEnter" },
-	{ "github/copilot.vim",   event = "VimEnter" },
 	{ "Bilal2453/luvit-meta", lazy = true },
 	"editorconfig/editorconfig-vim",
 	require('makefile'),
@@ -121,8 +120,27 @@ require("lazy").setup({
 	require("plugins/whichkey"),
 	require("plugins/mini"),
 	require("plugins/dap"),
-
-
+	{
+		"github/copilot.vim",
+		config = function()
+			-- Disable the default Tab key mapping
+			vim.g.copilot_no_tab_map = true
+			-- Use Ctrl+J to accept suggestions instead
+			vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+			vim.g.copilot_filetypes = {
+				["*"] = false, -- Disable by default
+				["javascript"] = true, -- Enable for JavaScript
+				["typescript"] = true, -- Enable for TypeScript
+				["lua"] = true, -- Enable for Lua
+				["rust"] = true, -- Enable for Rust
+				["python"] = true, -- Enable for Python
+				["make"] = true, -- Enable for Makefiles
+				["dockerfile"] = true, -- Enable for Dockerfiles
+				["jenkins"] = true, -- Enable for Jenkinsfiles
+				["groovy"] = true, -- Enable for Jenkinsfiles (alternate type)
+			}
+		end,
+	},
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
